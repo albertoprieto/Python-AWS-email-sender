@@ -27,8 +27,9 @@ class SendEmail:
         self.region_name = region_name
         logging.basicConfig(level=logging.INFO)
         self.logger = logging.getLogger(__name__)
+        self.main()
 
-    def send_email(self):
+    def main(self):
         """
         Send an email with attachments using Amazon SES.
         """
@@ -73,4 +74,3 @@ if __name__ == "__main__":
     aws_region = 'your_aws_region'
 
     email_sender = SendEmail(sender, recipient, subject, pdf_path, xml_path, aws_region)
-    email_sender.send_email()
