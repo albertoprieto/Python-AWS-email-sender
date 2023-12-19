@@ -1,0 +1,31 @@
+# .gitignore
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Logs
+*.log
+
+# Virtual Environment
+venv/
+
+# Environment variable file
+.env
+
+# Output files
+*.pdf
+*.xml
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Compiled files
+*.pyc
+*.pyo
+
+# AWS Credentials
+aws_credentials.ini
