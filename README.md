@@ -54,5 +54,5 @@ Example:
   export XML_PATH='path/to/your/file.xml'
   export AWS_REGION='your_aws_region'
 
-  python send_email.py
+  python main.py
   ```
