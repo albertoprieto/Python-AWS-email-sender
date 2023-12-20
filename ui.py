@@ -9,17 +9,35 @@ from main import SendEmail
 
 
 def hex_to_rgb(hex_color):
+    """
+    Convert a hexadecimal color code to an RGB tuple.
+
+    Args:
+        hex_color (str): The hexadecimal color code (e.g., '#RRGGBB').
+
+    Returns:
+        tuple: RGB values as a tuple of floats between 0 and 1.
+    """
     hex_color = hex_color.lstrip('#')
     return tuple(int(hex_color[i:i + 2], 16) / 255.0 for i in (0, 2, 4))
-    
+
 
 class EmailApp(App):
+    """
+    Kivy application for sending emails with attachments.
+    """
 
     def build(self):
+        """
+        Build the UI layout and initialize components.
+
+        Returns:
+            BoxLayout: The root UI layout.
+        """
         self.ui = BoxLayout(orientation='vertical', spacing=10, padding=10)
-        self.ui.background_color = hex_to_rgb('#4287f5')
+        self.ui.canvas.before.background_color = hex_to_rgb('#4287f5')
         text_color = hex_to_rgb('#FFFFFF')
-        
+
         self.sender_email = TextInput(hint_text='Sender Email', foreground_color=text_color)
         self.recipient_email = TextInput(hint_text='Recipient Email', foreground_color=text_color)
         self.email_subject = TextInput(hint_text='Subject', foreground_color=text_color)
@@ -41,6 +59,12 @@ class EmailApp(App):
         return self.ui
 
     def send_email(self, instance=None):
+        """
+        Callback function to send an email with attachments.
+
+        Args:
+            instance (kivy.uix.button.Button): The button instance that triggered the function.
+        """
         sender_email = self.sender_email.text
         recipient_email = self.recipient_email.text
         email_subject = self.email_subject.text
